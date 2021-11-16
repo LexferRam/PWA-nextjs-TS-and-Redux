@@ -13,7 +13,17 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+
+		//mejora las importaciones
+		// instalar el plugin tsconfig-paths-webpack-plugin
+		//yarn add --dev tsconfig-paths-webpack-plugin
+		"baseUrl": ".", // Aquí
+		"paths": { // Aquí
+		//   "@helpers/*": ["helpers/*"],
+		  "@components/*": ["components/*"],
+		//   ... 
+		},
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
