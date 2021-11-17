@@ -3,7 +3,18 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
+//REDUX EXAMPLE: httpsimport { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import Link from 'next/link'
+import { startClock } from '../actions'
+import Examples from '../components/examples'
+import { useEffect } from 'react'
+
 const Home: NextPage = () => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(startClock())
+  }, [dispatch])
   return (
     <div className={styles.container}>
       <Head>
@@ -65,6 +76,10 @@ const Home: NextPage = () => {
           </span>
         </a>
       </footer>
+      <div>  <Examples />
+        <Link href="/show-redux-state">
+          <a>Click to see current Redux State</a>
+        </Link></div>
     </div>
   )
 }
